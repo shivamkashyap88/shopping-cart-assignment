@@ -1,0 +1,172 @@
+@media only screen and (max-width : 767px) and (min-width: 481px){
+    .width-col-product-first { width : 45%; }
+    .width40 {
+        width: 30%;
+    }
+    
+    .width60 {
+        width: 65%;
+    }
+    .main-product-content {
+        div .span-3-of-4 {
+            width: 70%;
+        }
+        div .span-1-of-4 {
+            width: 48%;
+            padding: 5px;
+            position: relative;
+        }
+        div .span-1-of-2 {
+            width: 45%;
+        }
+        aside {
+            display: block;
+            background-color: #efefef;
+        }
+    }
+    .btn-large-screen {
+        display: block;
+        width: 100%;
+    }
+    .btn-small-screen {
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width : 1024px) and (min-width: 767px){
+    .width-col-product-first { width : 40%; }
+    .width-col-product-second { width : 40%; }
+    .brand-logo { width: 150px; }
+    .signup-header { text-align: left ; }
+    .login-section-link {
+        text-align: right;
+        font-size: 70%;
+        font-weight: bold;
+        padding: 0px;
+    }
+    .main-logo-section { width: 90%; }
+    .header-right-section {
+        width: 15%;
+        line-height: 40px;
+    }
+    aside {
+        display: block;
+        background-color: #efefef;
+    }
+    .cart-logo { width: 20%; }
+    .main-product-content {
+        div .span-3-of-4 {
+            width: 70%;
+        }
+        div .span-1-of-4 {
+            width: 48%;
+            padding: 5px;
+            position: relative;
+        }
+        div .span-1-of-2 {
+            width: 45%;
+        }
+        aside {
+            display: block;
+            background-color: #efefef;
+        }
+    }
+}
+
+@media only screen and (max-width : 1399px) and (min-width : 1024px) {
+    .brand-logo { width: 180px; }
+    .signup-header { text-align: left ; }
+    .main-logo-section { width: 90%; }
+    .header-right-section {
+        width: 10%;
+        line-height: 50px;
+    }
+    .cart-logo { width: 20%; }
+    aside {
+        display: block;
+        background-color: #efefef;
+    }
+    .main-product-content {
+        aside {
+            display: block;
+            background-color: #efefef;
+        }
+    }
+    .product__display-flex {flex-direction: column;}
+    
+}
+@media only screen and (min-width : 768px) {
+    body { font-size: 1.2em; }
+    .main-logo-list { 
+        display: inline-block; 
+        padding-left: 5em;
+    }
+    .categories-banner-row {
+        max-width: 80%;
+    }
+    .width-col-product-first { width : 50%; }
+    .btn-large-screen {
+        display: block;
+        width: 100%;
+    }
+    .btn-small-screen {
+        display: none;
+    }
+    .main-product-content {
+        .span-1-of-4 {
+            width: 22.8%;
+        }
+        p{
+            font-size: 90%;
+            font-weight: 600;
+        }
+    }
+}
+
+@media only screen and (min-width : 1024px) {
+    .product__button-row {
+        display: block;
+    }
+    .btn-large-screen {
+        display: flex;
+        align-items: baseline;
+    }
+    .product__button-price2 {
+        display: none;
+    }
+    .product__button-price {
+        display: block;
+    }
+}
+
+@media only screen and (min-width : 1400px) {
+    .brand-logo { width: 200px; }
+    .width-col-product-first { width : 50%; }
+    body { font-size: 1.5em; }
+    .main-logo-section { width: 90%; }
+    .product__display-flex {flex-direction: column;}
+    .header-right-section {
+        width: 15%;
+        line-height: 60px;
+    }
+    .signup-header { text-align: left ; }
+    .cart-logo { width: 20%; }
+    .btn-large-screen {
+        display: flex;
+        align-items: baseline;
+    }
+    .main-product-content {
+        aside {
+            display: block;
+            background-color: #efefef;
+        }
+    }
+}
+
+@media only screen and (min-width : 482px) { 
+    .dropdown-menu {
+        display: none;
+    }
+}
+

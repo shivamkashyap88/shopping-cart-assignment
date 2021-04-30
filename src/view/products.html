@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body onload="renderHeader();renderProducts();">
+    <main>
+        <section>
+            <div class="row dropdown-menu">
+                <span class="product-type">All<em>&#780;</em></span>
+                <ul>
+                    <li onclick="changeProduct(event)">All</li>
+                    <li onclick="changeProduct(event)">Fruits & Vegetables</li>
+                    <li onclick="changeProduct(event)">Bakery Cakes and Dairy</li>
+                    <li onclick="changeProduct(event)">Beverages</li>
+                    <li onclick="changeProduct(event)">Beauty and Hygine</li>
+                    <li onclick="changeProduct(event)">Baby Care</li>
+                </ul>
+            </div>
+            <div class="row main-product-content">
+                <aside class="span-1-of-4">
+                    <ul>
+                        <li onclick="changeProduct(event)">All</li>
+                        <li onclick="changeProduct(event)">Fruits & Vegetables</li>
+                        <li onclick="changeProduct(event)">Bakery Cakes and Dairy</li>
+                        <li onclick="changeProduct(event)">Beverages</li>
+                        <li onclick="changeProduct(event)">Beauty and Hygine</li>
+                        <li onclick="changeProduct(event)">Baby Care</li>
+                    </ul>
+                </aside>
+                <div class="span-3-of-4 products-list">
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer">
+                <p>Copyright &copy; 2020-2021 Sabka Bazaar Grocery Supplies Pvt Ltd.</p>
+            </div>
+        </footer>
+    </main>
+  
+</body>
+
+</html>

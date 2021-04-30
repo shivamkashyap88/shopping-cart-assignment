@@ -1,0 +1,127 @@
+@use '../vendor/css/normalize.css';
+@use '../vendor/css/grid.css';
+@use '_variable';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form label::before {
+    content: " ";
+    position: relative;
+}
+form label::after {
+    content: " ";
+    position: relative;
+}
+
+form label {
+    position: absolute;
+    color: #bababa;
+}
+
+input {
+    border : 0;
+    padding: 5px;
+    border-bottom: 1px solid #c0c0c0;
+    width:100%;
+    outline: none;
+    height: 45px;
+    margin:5px;
+    font-size: 100%;
+    transition: border-bottom 0.2s;
+}
+
+input[type="submit"],.btn {
+    border: 0;
+    color: #fff;
+    background-color: $button-color;
+    padding: 10px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+input:focus {
+    border-bottom: 1px solid #38d5e5;
+}
+
+input:focus::-webkit-input-placeholder {
+    transform: scale(0.40) translateY(-75%) translateX(-75%);
+    color: #38d5e5;
+    font-size: 25px;
+    
+}
+.position-relative {
+    position: relative;
+}
+
+input:focus:-moz-placeholder {
+    transform: scale(0.40) translateY(-75%) translateX(-75%);
+    color: #38d5e5;
+    font-size: 25px;
+}
+input:focus:-ms-input-placeholder {
+    transform: scale(0.40) translateY(-75%) translateX(-75%);
+    color: #38d5e5;
+    font-size: 25px;
+}
+
+
+html {
+    font-family: $font-stack;
+    font-size: $primary-font-size;
+    color: $primary-color;
+}
+
+.row {
+    margin: 0 auto; 
+    max-width: 90%;
+}
+
+body > header{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+
+main {
+    font-size: 35%;
+    width: 100%;
+    word-spacing: 1px;
+    p {
+        font-size: 120%;
+    }
+    .row {
+        max-width: 100%;
+    }
+}
+.display-inline {
+    display: inline;
+
+}
+.display-none {
+    display: none;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width60 {
+    width: 60%;
+}
+.width100 {
+    margin: 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
