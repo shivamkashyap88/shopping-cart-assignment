@@ -30,6 +30,7 @@ header {
 .main-logo-section {
     display: inline-block;
     width: 75%;
+    margin: 0 !important;
     height: auto;
     ul {
         flex: 20%;
@@ -156,6 +157,14 @@ Products
     flex-grow: 1;
 }
 
+.list-menu-small-hide {
+    display: none;
+}
+.list-menu-small-show {
+    display: inline-block;
+   
+}
+
 .main-product-content {
     display: flex;
     img {
@@ -224,9 +233,7 @@ Products
     flex-direction: column;
 }
 
-.product__flex-grow {
-    flex-grow: 1;
-}
+.product__flex-grow { flex-grow: 1; }
 
 .product__img {
     display: flex;
@@ -234,9 +241,7 @@ Products
     justify-content: center;
 }
 
-.product__last{
-    flex-grow: 0;
-}
+.product__last { flex-grow: 0; }
 
 .product__button-row {
     flex: 1;
@@ -249,9 +254,7 @@ Products
     flex: 0 50%;
 }
 
-.product__button-price2 {
-    display: block;
-}
+.product__button-price2 { display: block; }
 
 .footer {
     background-color: #efefef;

@@ -79,6 +79,7 @@
 }
 
 .modal-header{
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     background-color: #3a3a3a;
@@ -92,6 +93,7 @@
 
 .checkout {
     font-size: 40%;
+    position: -webkit-sticky;
     position: sticky;
     bottom: 0;
     padding: 10px;

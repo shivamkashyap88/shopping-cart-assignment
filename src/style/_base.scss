@@ -44,12 +44,12 @@ input[type="submit"],.btn {
 }
 
 input:focus {
-    border-bottom: 1px solid #38d5e5;
+    border-bottom: 1px solid $input-border;
 }
 
 input:focus::-webkit-input-placeholder {
     transform: scale(0.40) translateY(-75%) translateX(-75%);
-    color: #38d5e5;
+    color: $input-border;
     font-size: 25px;
     
 }
@@ -59,12 +59,12 @@ input:focus::-webkit-input-placeholder {
 
 input:focus:-moz-placeholder {
     transform: scale(0.40) translateY(-75%) translateX(-75%);
-    color: #38d5e5;
+    color: $input-border;
     font-size: 25px;
 }
 input:focus:-ms-input-placeholder {
     transform: scale(0.40) translateY(-75%) translateX(-75%);
-    color: #38d5e5;
+    color: $input-border;
     font-size: 25px;
 }
 
@@ -81,6 +81,7 @@ html {
 }
 
 body > header{
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     background-color: #fff;
@@ -96,31 +97,14 @@ main {
         font-size: 120%;
     }
     .row {
-        max-width: 100%;
+        max-width: 85%;
     }
 }
-.display-inline {
-    display: inline;
 
-}
-.display-none {
-    display: none;
-}
-
-.width40 {
-    width: 40%;
-}
-
-.width60 {
-    width: 60%;
-}
 .width100 {
     margin: 0;
     width: 100%;
 }
-
-
-
 
 
 

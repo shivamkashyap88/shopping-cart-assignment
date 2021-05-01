@@ -11,9 +11,9 @@
 <body onload="renderHeader();renderProducts();">
     <main>
         <section>
-            <div class="row dropdown-menu">
-                <span class="product-type">All<em>&#780;</em></span>
-                <ul>
+            <div class="dropdown-menu">
+                <span class="product-type" onclick="toggleDropdown()">All<em>&#780;</em></span>
+                <ul id="list-menu-small" class="list-menu-small-hide">
                     <li onclick="changeProduct(event)">All</li>
                     <li onclick="changeProduct(event)">Fruits & Vegetables</li>
                     <li onclick="changeProduct(event)">Bakery Cakes and Dairy</li>
@@ -22,7 +22,7 @@
                     <li onclick="changeProduct(event)">Baby Care</li>
                 </ul>
             </div>
-            <div class="row main-product-content">
+            <div class="main-product-content">
                 <aside class="span-1-of-4">
                     <ul>
                         <li onclick="changeProduct(event)">All</li>

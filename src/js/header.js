@@ -2,7 +2,7 @@ export default class header {
     count = 0;
     renderHeader() {
         return `
-        <header>
+        <header id="header">
         <nav>
             <div class="row position-relative">
                 <div class="col main-logo-section">

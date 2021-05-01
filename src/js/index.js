@@ -2,11 +2,14 @@ import '../style/home.scss';
 import '../style/media.scss';
 import categories from '../../server/categories/index.get.json';
 import products from '../../server/products/index.get.json';
+import banner from '../../server/banners/index.get.json';
 import modalHTML from '../js/modal';
+import Crousals from '../js/crousal';
 import Header from '../js/header';
 
 var modal = new modalHTML();
 var header = new Header();
+var crousal = new Crousals();
 var width1 = 'width-col-product-first';
 var width2 = 'width-col-product-second';
 
@@ -67,21 +70,21 @@ var generateHTMLProduct = function (products) {
     product_flex_grow.className = "product__flex-grow";
     span.className = "product__button-row";
     image_div.className = "product__img";
-    largscr.className = "row btn-large-screen";
+    largscr.className = "btn-large-screen";
     smallscr.className = "btn-small-screen";
     button.className = "btn";
     button2.className = "btn product__button-price";
     lrgbutton.className = "btn product__button-price2";
     img.src = products.imageURL;
     p.innerHTML = products.description;
-    button.innerHTML = "Buy Now @ Rs."+ products.price;
-    button.setAttribute('onclick',`addProduct("${products.id}")`);
-    lrgbutton.innerHTML = "Buy Now @ Rs."+ products.price;
-    lrgbutton.setAttribute('onclick',`addProduct("${products.id}")`);
+    button.innerHTML = "Buy Now @ Rs." + products.price;
+    button.setAttribute('onclick', `addProduct("${products.id}")`);
+    lrgbutton.innerHTML = "Buy Now @ Rs." + products.price;
+    lrgbutton.setAttribute('onclick', `addProduct("${products.id}")`);
     h3.innerHTML = products.name;
-    span.innerHTML = "MRP Rs."+ products.price;
+    span.innerHTML = "MRP Rs." + products.price;
     button2.innerHTML = "Buy Now";
-    button2.setAttribute('onclick',`addProduct("${products.id}")`);
+    button2.setAttribute('onclick', `addProduct("${products.id}")`);
     image_div.appendChild(img);
     smallscr.appendChild(button);
     product_flex_grow.appendChild(p);
@@ -99,26 +102,26 @@ var generateHTMLProduct = function (products) {
     document.getElementsByClassName("products-list")[0].appendChild(product);
 }
 window.renderHeader = function () {
-    document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin',header.renderHeader());  
+    document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', header.renderHeader());
 }
 window.renderProducts = function (id) {
     for (var i = 0; i < products.length; i++) {
         if (id && products[i].category === id) {
             generateHTMLProduct(products[i]);
-        } else if(!id){
+        } else if (!id) {
             generateHTMLProduct(products[i]);
         }
     }
-    document.getElementsByClassName("product")[document.getElementsByClassName("product").length -1].className = "product product__last";
-    document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend',modal.renderHTML());  
-    if(!id){
+    document.getElementsByClassName("product")[document.getElementsByClassName("product").length - 1].className = "product product__last";
+    document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', modal.renderHTML());
+    if (!id) {
         modal.checkoutButtonTemplate();
     }
 }
 
 window.addProduct = function (productId) {
-    for(var i =0 ; i< products.length ; i++){
-        if(productId === products[i].id) {
+    for (var i = 0; i < products.length; i++) {
+        if (productId === products[i].id) {
             modal.addProduct(products[i]);
             header.changeBasketCount();
         }
@@ -128,7 +131,7 @@ window.addProduct = function (productId) {
 window.changeProduct = function (event) {
     document.getElementsByClassName("products-list")[0].innerHTML = '';
     var productObj = [
-        {   
+        {
             name: 'All',
             id: ''
         },
@@ -163,14 +166,29 @@ window.closeModal = function () {
     document.getElementById("myModal").classList.remove('show-modal');
 }
 
-window.increaseProductCount = function(id,price) {
-    modal.increaseProductCount(id,price);
+window.increaseProductCount = function (id, price) {
+    modal.increaseProductCount(id, price);
 }
 
-window.decreaseProductCount = function(id,price) {
-    modal.decreaseProductCount(id,price);
+window.decreaseProductCount = function (id, price) {
+    modal.decreaseProductCount(id, price);
+}
+
+window.renderCrousal = function () {
+   document.getElementById('header').insertAdjacentHTML('afterend', crousal.renderHTML());
+   for(var i =0 ;i< banner.length; i++){
+    crousal.addSlides(banner[i].bannerImageUrl);
+   }
+   crousal.showSlides();
+
+}
+
+window.toggleDropdown = function () {
+    if(document.getElementById('list-menu-small').classList.contains('list-menu-small-show')){
+        document.getElementById('list-menu-small').classList.remove('list-menu-small-show');
+    } else {
+        document.getElementById('list-menu-small').classList.add('list-menu-small-show');
+    }
 }
 
 document.getElementsByClassName('categories-banner-row')[0].remove();
-
-
