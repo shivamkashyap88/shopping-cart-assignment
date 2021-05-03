@@ -1,11 +1,13 @@
 import '../style/home.scss';
+import modalHTML from '../js/modal';
+import Crousals from '../js/crousal';
+import Header from '../js/header';
 import '../style/media.scss';
 import categories from '../../server/categories/index.get.json';
 import products from '../../server/products/index.get.json';
 import banner from '../../server/banners/index.get.json';
-import modalHTML from '../js/modal';
-import Crousals from '../js/crousal';
-import Header from '../js/header';
+
+
 
 var modal = new modalHTML();
 var header = new Header();
@@ -120,6 +122,7 @@ window.renderProducts = function (id) {
 }
 
 window.addProduct = function (productId) {
+    document.getElementsByClassName('width100')[0].innerHTML = 'Proceed to Checkout';
     for (var i = 0; i < products.length; i++) {
         if (productId === products[i].id) {
             modal.addProduct(products[i]);
@@ -175,16 +178,16 @@ window.decreaseProductCount = function (id, price) {
 }
 
 window.renderCrousal = function () {
-   document.getElementById('header').insertAdjacentHTML('afterend', crousal.renderHTML());
-   for(var i =0 ;i< banner.length; i++){
-    crousal.addSlides(banner[i].bannerImageUrl);
-   }
-   crousal.showSlides();
+    document.getElementById('header').insertAdjacentHTML('afterend', crousal.renderHTML());
+    for (var i = 0; i < banner.length; i++) {
+        crousal.addSlides(banner[i].bannerImageUrl);
+    }
+    crousal.showSlides();
 
 }
 
 window.toggleDropdown = function () {
-    if(document.getElementById('list-menu-small').classList.contains('list-menu-small-show')){
+    if (document.getElementById('list-menu-small').classList.contains('list-menu-small-show')) {
         document.getElementById('list-menu-small').classList.remove('list-menu-small-show');
     } else {
         document.getElementById('list-menu-small').classList.add('list-menu-small-show');

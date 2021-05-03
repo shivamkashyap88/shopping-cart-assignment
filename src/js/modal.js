@@ -4,7 +4,7 @@ export default class modalHTML {
     productCount = [];
     productObj = {};
     renderHTML() {
-        return `
+        var template = `
             <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
@@ -13,21 +13,23 @@ export default class modalHTML {
                     <p>My Cart</p>
                 </div>
                 <div class="product-content">
-                    
                 </div>
-            </div>
+                </div>
           </div>`;
+        return template;
     }
 
     addProduct(product) {
+        if (Object.keys(this.productObj).length === 0)
+            document.getElementsByClassName("product-content")[0].innerHTML = '';
         var isProductAdded = this.addToProductArray(product);
         if (!isProductAdded) {
             var productItem = `
-            <div class="basket">
-                <div class="basket__product-image">
+            <section class="basket">
+                <figure class="basket__product-image">
                 <img src=${product.imageURL} />
-                </div>
-                <div class="basket__product-description">
+                </figure>
+                <article class="basket__product-description">
                     <h3>${product.name}</h3>
                     <div class="basket__product-count">
                         <span onclick=`+ `"increaseProductCount('${product.id}','${product.price}')"` + `class="basket__product-addsubtract">&plus;</span>
@@ -36,20 +38,30 @@ export default class modalHTML {
                         <span class="basket__product-text">&times;${product.price}</span>
                         <span id="${product.id}-price" class="basket__product-text">Rs.${this.productObj[product.id] * product.price}</span>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
         `;
+            document.getElementsByClassName("product-content")[0].classList.remove('emptycart_message');
             document.getElementsByClassName("product-content")[0].insertAdjacentHTML('beforeend', productItem);
         }
     }
 
     checkoutButtonTemplate() {
-        console.log('sasas')
+        var checkoutButtonString = 'Start Shopping';
         var template = `
             <div class="checkout">
-                <button class="btn width100">Proceed to Checkout</button>
+                <button class="btn width100">${checkoutButtonString}</button>
             </div>
         `;
+        var emptyCart = `<header class="flex-full">
+            <h5>No items in your cart<h5>
+            <p>Your favourite items are just cick away</p>
+        </header>`;
+
+        if (Object.keys(this.productObj).length === 0) {
+            document.getElementsByClassName("product-content")[0].classList.add('emptycart_message');
+            document.getElementsByClassName("product-content")[0].insertAdjacentHTML('afterbegin', emptyCart);
+        }
         document.getElementsByClassName("modal-content")[0].insertAdjacentHTML('beforeend', template);
     }
 

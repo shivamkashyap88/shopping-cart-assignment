@@ -2,7 +2,7 @@
 @import '_base';
 
     
-header {
+body > header {
     font-size: 40%;
     box-shadow: $header-box-shadow;  
     ul,li{
@@ -43,6 +43,7 @@ header {
 .header-right-section {
     position: absolute;
     bottom: 0;
+    cursor: pointer;
     text-align: center;
     width: 25%;
     height: 60%;
@@ -83,6 +84,8 @@ header {
     max-width: 100%;
     text-align: center;
     padding: 15px 0px;
+    display: flex;
+    align-items: center;
     .btn {
         margin-top: 15px;
     }
@@ -97,11 +100,11 @@ header {
 }
 
 .width-col-product-first { 
-    width : 60%; 
+    flex: 1;
     padding: 5px;
 }
 .width-col-product-second { 
-    width: 40%;
+    flex-basis: 40%;
     padding: 5px;
 }
 /**

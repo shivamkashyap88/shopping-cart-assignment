@@ -19,7 +19,7 @@
   .modal-content {
     background-color: #e8e8e8;
     margin: auto;
-    width: 35%;
+    width: 100%;
     overflow: auto;
     height: 80vh;
   }
@@ -100,6 +100,23 @@
     background-color: #efefef;
 }
 
-.show-modal{
-    display: block;
+.show-modal { display: block; }
+
+.emptycart_message {
+  display: flex;
+  font-size: 50%;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-full {
+  flex: 1;
+  p {
+    font-weight: 100;
+    padding: 10px;
+  }
+}
+
+.product-content {
+  height: 80%;
 }
