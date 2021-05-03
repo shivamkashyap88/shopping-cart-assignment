@@ -21,7 +21,9 @@
     margin: auto;
     width: 100%;
     overflow: auto;
-    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   
   /* The Close Button */
@@ -61,9 +63,9 @@
 .basket__product-addsubtract {
     display: inline-block;
     background-color: $button-color;
-    border-radius: 50%;
-    font-size: 60%;
-    width: 6%;
+    border-radius: 15%;
+    font-size: 16px;
+    width: 20px;
     cursor: pointer;
     text-align: center;
     color: #fff;
@@ -75,6 +77,7 @@
 
 .basket__product-count {
     display: flex;
+    margin-top: 10px;
     justify-content: space-between;
 }
 
@@ -105,6 +108,7 @@
 .emptycart_message {
   display: flex;
   font-size: 50%;
+  flex: 1;
   align-items: center;
   text-align: center;
 }
@@ -117,6 +121,16 @@
   }
 }
 
-.product-content {
-  height: 80%;
+.promocode {
+  display: flex;
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
+  p {
+    font-weight: 100;
+    padding: 10px;
+    font-size: 50%;
+  }
 }
+

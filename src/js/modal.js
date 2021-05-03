@@ -20,8 +20,17 @@ export default class modalHTML {
     }
 
     addProduct(product) {
-        if (Object.keys(this.productObj).length === 0)
+        var promocode = `
+        <section class="promocode">
+            <figure>
+                <img src="../static/images/lowest-price.png" alt="Promo Code">
+            </figure>
+            <p>You won't find it cheaper anywhere</p>
+        </section>`;
+        if (Object.keys(this.productObj).length === 0) {
             document.getElementsByClassName("product-content")[0].innerHTML = '';
+            document.getElementsByClassName("product-content")[0].insertAdjacentHTML('beforeend', promocode);
+        }
         var isProductAdded = this.addToProductArray(product);
         if (!isProductAdded) {
             var productItem = `
@@ -42,7 +51,7 @@ export default class modalHTML {
             </section>
         `;
             document.getElementsByClassName("product-content")[0].classList.remove('emptycart_message');
-            document.getElementsByClassName("product-content")[0].insertAdjacentHTML('beforeend', productItem);
+            document.getElementsByClassName("product-content")[0].insertAdjacentHTML('afterbegin', productItem);
         }
     }
 
