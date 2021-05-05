@@ -65,8 +65,9 @@ var generateHTMLProduct = function (products) {
     var lrgbutton = document.createElement("button");
     var img = document.createElement("img");
     var p = document.createElement("p");
-    var h3 = document.createElement("h3");
+    var h2 = document.createElement("h2");
     product.className = "product";
+    row.className = "product-row";
     product_flex.className = "product__display-flex";
     product_column.className = "product__display-column";
     product_flex_grow.className = "product__flex-grow";
@@ -83,7 +84,7 @@ var generateHTMLProduct = function (products) {
     button.setAttribute('onclick', `addProduct("${products.id}")`);
     lrgbutton.innerHTML = "Buy Now @ Rs." + products.price;
     lrgbutton.setAttribute('onclick', `addProduct("${products.id}")`);
-    h3.innerHTML = products.name;
+    h2.innerHTML = products.name;
     span.innerHTML = "MRP Rs." + products.price;
     button2.innerHTML = "Buy Now";
     button2.setAttribute('onclick', `addProduct("${products.id}")`);
@@ -97,7 +98,7 @@ var generateHTMLProduct = function (products) {
     largscr.appendChild(span);
     largscr.appendChild(lrgbutton);
     largscr.appendChild(button2);
-    row.appendChild(h3);
+    row.appendChild(h2);
     row.appendChild(product_flex);
     row.appendChild(largscr);
     product.appendChild(row);
