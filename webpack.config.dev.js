@@ -65,6 +65,11 @@ module.exports = {
             template: __dirname + "/src/view/products.html",
             inject: 'body',
             filename: 'products.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: __dirname + "/src/view/signin.html",
+            inject: 'body',
+            filename: 'signin.html'
         })
     ]
 };

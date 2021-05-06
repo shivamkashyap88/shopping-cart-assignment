@@ -4,9 +4,11 @@ export default class Crousals {
     renderHTML() {
         return `
         <div class="slideshow-container">
+        <a class="prev" onclick="plusSlides(-1)">PREV</a>
+        <a class="next" onclick="plusSlides(1)">NEXT</a>
         </div>
         <br>
-        <div id="crousal-dots" style="text-align:center">
+        <div class="crousal_dots" id="crousal-dots" style="text-align:center">
         </div>
         `;
     }
@@ -18,16 +20,18 @@ export default class Crousals {
         var crousalDots = `
         <span class="dot"></span>
         `;
-        document.getElementsByClassName('slideshow-container')[0].insertAdjacentHTML('beforeend', template);
+        document.getElementsByClassName('slideshow-container')[0].insertAdjacentHTML('afterbegin', template);
         document.getElementById('crousal-dots').insertAdjacentHTML('beforeend', crousalDots);
     }
-    changeSlides () {
+    changeSlides (n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
             var dots = document.getElementsByClassName("dot");
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
+            if (n > slides.length) {this.slideIndex = 1}    
+            if (n < 1) {this.slideIndex = slides.length}
             this.slideIndex++;
             if (this.slideIndex > slides.length) { this.slideIndex = 1 }
             for (i = 0; i < dots.length; i++) {
@@ -40,5 +44,9 @@ export default class Crousals {
         this.changeSlides(); 
         setInterval(this.changeSlides.bind(this) , 3000);
 
+    }
+    plusSlides(n) {
+        clearInterval(this.changeSlides.bind(this));
+        this.showSlides(this.slideIndex += n);
     }
 }

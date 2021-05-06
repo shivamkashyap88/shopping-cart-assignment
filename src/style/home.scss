@@ -17,8 +17,11 @@ body > header {
     }
 }
 
-.main-logo-list {
-    display: none;
+.login-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px !important;
 }
 
 .brand-logo {
@@ -29,7 +32,7 @@ body > header {
 
 .main-logo-section {
     display: inline-block;
-    width: 75%;
+    flex-basis: 75%;
     margin: 0 !important;
     height: auto;
     ul {
@@ -41,29 +44,36 @@ body > header {
     }
 }
 .header-right-section {
-    position: absolute;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     cursor: pointer;
+    flex:1;
     text-align: center;
-    width: 25%;
-    height: 60%;
-    line-height: 20px;
-    display: inline-block;
+}
+
+.header-right-section__basket {
     background-color: #eeeeee;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 5px;
 }
 
-.cart-logo {
-    vertical-align: middle;
-    width: 20px;
-}
-
 .items-number{
-    line-height: 15px;
+    // line-height: 15px;
 }
 
 .login-section-link {
-    display: none;
+    text-align: right;
+    font-size: 85%;
+    font-weight: bold;
+    flex: 1;
+    padding-top: 10px;
+    li {
+        padding: 2px;
+    }
 }
 
 .signup-header {
@@ -73,6 +83,7 @@ body > header {
 
 .main-form {
     margin-top : 20px;
+    flex-basis: 100%;
 }
 
 .categories-img {
@@ -80,9 +91,9 @@ body > header {
 }
 
 .categories-banner-row {
-    border-bottom: 1px solid #cacaca;
     max-width: 100%;
     text-align: center;
+    position: relative;
     padding: 15px 0px;
     display: flex;
     align-items: center;
@@ -94,6 +105,16 @@ body > header {
         font-size: 100%;
     }
 }
+
+// .categories-banner-row::after {
+//     content: " ";
+//     position: absolute;
+//     display: block !important;
+//     width: 85%;
+//     bottom: 0;
+//     border: 1px solid #fff;
+//     box-shadow: 0 4px 4px rgb(6 6 6 / 11%);
+// }
 
 .categories-banner-row:first-child {
     margin-top: 15px;;
@@ -118,6 +139,7 @@ Products
 .product-row {
     display: flex; 
     flex-direction: column;
+    border-bottom: 1.9px dotted #e6e6e6;
 }
 .dropdown-menu {
     padding: 10px;
@@ -159,7 +181,7 @@ Products
 .product {
     width: 225px; 
     display: flex;
-    padding:20px 10px; 
+    padding:10px 10px; 
     flex-grow: 1;
 }
 
@@ -169,6 +191,11 @@ Products
 .list-menu-small-show {
     display: inline-block;
    
+}
+
+.position-relative {
+    position: relative;
+    display: flex;
 }
 
 .main-product-content {
@@ -194,7 +221,8 @@ Products
         background-color: #e6e6e6;
     }
     p {
-        font-size: 120%;
+        font-weight: 600;
+        font-size: 100%;
         background-color: #efefef;
         padding: 5px;
         line-height: 15px;
@@ -238,11 +266,11 @@ Products
 .product__display-column {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .product__flex-grow { 
-    display: flex;
-    flex-grow: 1; 
+    display: flex; 
 }
 
 .product__img {

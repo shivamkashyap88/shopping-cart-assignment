@@ -58,10 +58,6 @@ input:focus::-webkit-input-placeholder {
     width: 100%;
 }
 
-.position-relative {
-    position: relative;
-}
-
 input:focus:-moz-placeholder {
     transform: scale(0.40) translateY(-75%) translateX(-75%);
     color: $input-border;
@@ -109,6 +105,11 @@ main {
     margin: 0;
     width: 100%;
 }
+
+
+
+
+
 
 
 

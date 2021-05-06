@@ -116,20 +116,23 @@ window.renderProducts = function (id) {
         }
     }
     document.getElementsByClassName("product")[document.getElementsByClassName("product").length - 1].className = "product product__last";
-    document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', modal.renderHTML());
+    document.getElementsByClassName('position-relative')[0].insertAdjacentHTML('beforeend', modal.renderHTML());
     if (!id) {
         modal.checkoutButtonTemplate();
     }
 }
 
 window.addProduct = function (productId) {
-    document.getElementsByClassName('width100')[0].innerHTML = 'Proceed to Checkout';
+    document.getElementById('promoCode_p').innerHTML = 'Promo code can be applied on payment page';
     for (var i = 0; i < products.length; i++) {
         if (productId === products[i].id) {
             modal.addProduct(products[i]);
             header.changeBasketCount();
         }
     }
+    document.getElementsByClassName('width100')[0].classList.add('checkoutButton_flex');
+    document.getElementsByClassName('total_amount_text')[0].innerHTML = 'Proceed to Checkout';
+    document.getElementsByClassName('total_amount')[0].innerHTML = 'Rs.' + modal.calculateTotalPrice();
 }
 
 window.changeProduct = function (event) {
@@ -162,12 +165,13 @@ window.changeProduct = function (event) {
     }
 }
 
-window.openBasket = function () {
-    document.getElementById("myModal").classList.add('show-modal');
-}
-
-window.closeModal = function () {
-    document.getElementById("myModal").classList.remove('show-modal');
+window.toggleModal = function () {
+    if(document.getElementById("myModal").classList.contains('show-modal')) {
+        document.getElementById("myModal").classList.remove('show-modal');
+    } else {
+        document.getElementById("myModal").classList.add('show-modal');
+    }
+    
 }
 
 window.increaseProductCount = function (id, price) {
@@ -193,6 +197,10 @@ window.toggleDropdown = function () {
     } else {
         document.getElementById('list-menu-small').classList.add('list-menu-small-show');
     }
+}
+
+window.plusSlides = function (n) {
+    crousal.plusSlides(n);
 }
 
 document.getElementsByClassName('categories-banner-row')[0].remove();
