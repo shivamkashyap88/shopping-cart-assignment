@@ -87,16 +87,21 @@ body > header {
 }
 
 .categories-img {
-    width: 15em;
+    width: 12em;
+    height: 12em;
+    object-fit: scale-down;
 }
 
 .categories-banner-row {
     max-width: 100%;
     text-align: center;
     position: relative;
+    background-color: #fff;
     padding: 15px 0px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    margin: 10px auto;
     .btn {
         margin-top: 15px;
     }
@@ -106,18 +111,24 @@ body > header {
     }
 }
 
-// .categories-banner-row::after {
-//     content: " ";
-//     position: absolute;
-//     display: block !important;
-//     width: 85%;
-//     bottom: 0;
-//     border: 1px solid #fff;
-//     box-shadow: 0 4px 4px rgb(6 6 6 / 11%);
-// }
+
 
 .categories-banner-row:first-child {
-    margin-top: 15px;;
+    margin-top: 15px;
+}
+
+.categories-banner-row::after {
+    content: " ";
+    position: absolute;
+    top: 25%;
+    left: 0px;
+    height: 94px;
+    width: 100%;
+    background: #fff;
+    z-index: -1;
+    bottom: 0;
+    box-shadow: 0 0px 10px 7px rgb(100 100 100 / 50%);
+    border-radius: 406px/19px;
 }
 
 .width-col-product-first { 

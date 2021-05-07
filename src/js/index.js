@@ -12,42 +12,47 @@ import banner from '../../server/banners/index.get.json';
 var modal = new modalHTML();
 var header = new Header();
 var crousal = new Crousals();
-var width1 = 'width-col-product-first';
-var width2 = 'width-col-product-second';
 
-for (var i = 0; i < categories.length; i++) {
-    if (categories[i].imageUrl) {
-        var bannerRow = document.getElementsByClassName('categories-banner-row')[categories[i].order];
-        if (bannerRow) {
-            var h3 = document.createElement("h3");
-            h3.innerHTML = categories[i].name;
-            var p = document.createElement("p");
-            p.innerHTML = categories[i].description;
-            var img = document.createElement("img");
-            img.classList.add("categories-img");
-            img.src = categories[i].imageUrl;
-            var button = document.createElement("button");
-            button.classList.add("btn");
-            button.innerHTML = 'Explore ' + categories[i].key;
 
-            if (categories[i].order % 2 !== 0) {
-                bannerRow.getElementsByClassName('col')[0].classList.add(width2);
-                bannerRow.getElementsByClassName('col')[1].classList.add(width1);
-                bannerRow.getElementsByClassName('col')[1].appendChild(h3);
-                bannerRow.getElementsByClassName("col")[1].appendChild(p);
-                bannerRow.getElementsByClassName("col")[1].appendChild(button);
-                bannerRow.getElementsByClassName("col")[0].appendChild(img);
+window.renderCatalog = function () {
+    var sortCategory = categories.sort(function(a,b){
+            return a.order - b.order;
+    });
+    for (var i = 0; i < sortCategory.length; i++) {
+        if (sortCategory[i].imageUrl) {
+            if (sortCategory[i].order % 2 !== 0) {
+                var template = `
+                <section class="sec">
+                    <figure>
+                    <img class="categories-img" src="${sortCategory[i].imageUrl}">
+                    </figure>
+                    <article>
+                    <h3>${sortCategory[i].name}</h3><p>${sortCategory[i].description}</p><button class="btn">${'Explore ' + sortCategory[i].key}</button>
+                    </article>
+                </section>`;
+                document.getElementById('sectionCategories').insertAdjacentHTML('beforeend',template);
             } else {
-                bannerRow.getElementsByClassName('col')[1].classList.add(width2);
-                bannerRow.getElementsByClassName('col')[0].classList.add(width1);
-                bannerRow.getElementsByClassName('col')[0].appendChild(h3);
-                bannerRow.getElementsByClassName("col")[0].appendChild(p);
-                bannerRow.getElementsByClassName("col")[0].appendChild(button);
-                bannerRow.getElementsByClassName("col")[1].appendChild(img);
+                var template = `
+                <section class="sec">
+                    <article>
+                    <h3>${sortCategory[i].name}</h3><p>${sortCategory[i].description}</p><button class="btn">${'Explore ' + sortCategory[i].key}</button>
+                    </article>
+                    <figure>
+                    <img class="categories-img" src="${sortCategory[i].imageUrl}">
+                    </figure>
+                </section>`;
+                document.getElementById('sectionCategories').insertAdjacentHTML('beforeend',template);
             }
         }
+
     }
 
+}
+
+window.addCustomClass = function () {
+    for(var j = 0 ; j < document.getElementsByClassName('sec').length ; j++) {
+        document.getElementsByClassName('sec')[j].classList.add('categories-banner-row');
+    }
 }
 
 var generateHTMLProduct = function (products) {
@@ -166,12 +171,12 @@ window.changeProduct = function (event) {
 }
 
 window.toggleModal = function () {
-    if(document.getElementById("myModal").classList.contains('show-modal')) {
+    if (document.getElementById("myModal").classList.contains('show-modal')) {
         document.getElementById("myModal").classList.remove('show-modal');
     } else {
         document.getElementById("myModal").classList.add('show-modal');
     }
-    
+
 }
 
 window.increaseProductCount = function (id, price) {

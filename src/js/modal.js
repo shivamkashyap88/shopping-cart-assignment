@@ -63,12 +63,12 @@ export default class modalHTML {
     checkoutButtonTemplate() {
         var checkoutButtonString = 'Start Shopping';
         var template = `
-            <div class="checkout">
+            <article class="checkout">
                 <p id="promoCode_p"></p>
                 <button class="btn width100">
                 <span class="total_amount_text">${checkoutButtonString}</span>
                 <span class="total_amount"></span></button>
-            </div>
+            </article>
         `;
         var emptyCart = `<header class="flex-full">
             <h5>No items in your cart<h5>

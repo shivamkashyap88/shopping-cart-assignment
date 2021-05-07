@@ -5,6 +5,7 @@ img {vertical-align: middle;}
 .slideshow-container {
   max-width: 100%;
   position: relative;
+  background-color: #fff;
   margin: auto;
 }
 
@@ -30,8 +31,8 @@ img {vertical-align: middle;}
 
 /* The dots/bullets/indicators */
 .dot {
-  height: 10px;
-  width: 10px;
+  height: 7px;
+  width: 7px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -70,15 +71,26 @@ img {vertical-align: middle;}
 }
 
 
-// .crousal_dots ::after {
-//   content: " ";
-//   position: absolute;
-//   display: block !important;
-//   width: 85%;
-//   bottom: 0;
-//   border: 1px solid #fff;
-//   box-shadow: 0 4px 4px rgb(6 6 6 / 11%);
-// }
+.crousal_dots {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 5px;
+  text-align:center;
+}
+
+.crousal_dots::after {
+  content: " ";
+  transform: translate(-60%, 0%);
+  position: absolute;
+  bottom: 0;
+  height: 94px;
+  width: 100%;
+  background: #fff;
+  z-index: -1;
+  box-shadow: 0 0px 10px 7px rgb(100 100 100 / 50%);
+  border-radius: 406px/19px;
+}
 
 /* Fading animation */
 .fade {
