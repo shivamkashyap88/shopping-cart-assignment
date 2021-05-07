@@ -12,14 +12,14 @@
     <main>
         <section>
             <div class="dropdown-menu">
-                <span class="product-type" onclick="toggleDropdown()">All<em>&#780;</em></span>
+                <span class="product-type" onclick="toggleDropdown()"><span id="prduct__category">All</span><em>&#780;</em></span>
                 <ul id="list-menu-small" class="list-menu-small-hide">
-                    <li onclick="changeProduct(event)">All</li>
-                    <li onclick="changeProduct(event)">Fruits & Vegetables</li>
-                    <li onclick="changeProduct(event)">Bakery Cakes and Dairy</li>
-                    <li onclick="changeProduct(event)">Beverages</li>
-                    <li onclick="changeProduct(event)">Beauty and Hygine</li>
-                    <li onclick="changeProduct(event)">Baby Care</li>
+                    <li onclick="changeProduct(event);toggleDropdown()">All</li>
+                    <li onclick="changeProduct(event);toggleDropdown()">Fruits & Vegetables</li>
+                    <li onclick="changeProduct(event);toggleDropdown()">Bakery Cakes and Dairy</li>
+                    <li onclick="changeProduct(event);toggleDropdown()">Beverages</li>
+                    <li onclick="changeProduct(event);toggleDropdown()">Beauty and Hygine</li>
+                    <li onclick="changeProduct(event);toggleDropdown()">Baby Care</li>
                 </ul>
             </div>
             <div class="main-product-content">

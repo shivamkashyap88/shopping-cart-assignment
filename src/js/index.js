@@ -142,6 +142,7 @@ window.changeProduct = function (event) {
     for (var i = 0; i < productObj.length; i++) {
         if (productObj[i].name === event.target.innerHTML) {
             renderProducts(productObj[i].id);
+            document.getElementById('prduct__category').innerHTML = event.target.innerHTML;
         }
     }
 }
