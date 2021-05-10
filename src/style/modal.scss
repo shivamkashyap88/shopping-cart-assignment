@@ -42,7 +42,7 @@
             font-weight: 600;
             color: $white;
             text-align: left;
-            padding-left: 5px;
+            padding-left: 0.3em;
             span {
               font-size: 80%;
               font-weight: 100;
@@ -87,7 +87,7 @@
         .basket {
           display: flex;
           margin-top: 0.625em;
-          padding: 12px;
+          padding: 0.75em;
           background-color: $white;
           .basket__product-image {
             flex-basis: 15%;
@@ -96,7 +96,7 @@
             }
           }
           .basket__product-description {
-            padding: 5px;
+            padding: 0.31em;
             @include flexbox($direction : column , $grow : 1 , $justifyContent : space-around);
             h3 {
               font-size: 100%;

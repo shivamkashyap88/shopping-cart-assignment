@@ -5,16 +5,15 @@
 /** Previous Next Placeholder**/
 
 %prev_next_placeholder {
+  @include setDimension ( $top: 50%,$width: auto);
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 10px;
+  padding: 0.625em;
   color: $white;
-  background-color: rgba(0,0,0,0.2);
-  font-size: 15px;
+  background-color: $black-4;
+  font-size: 50%;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 0.2em 0.2em 0;
   user-select: none;
 }
 
@@ -41,13 +40,12 @@
   .next {
     @extend %prev_next_placeholder;
     right: 0;
-    border-radius: 3px 0 0 3px;
+    border-radius: 0.2em 0 0 0.2em;
   }
   .crousel_dots {
     position: absolute;
     text-align: center;
-    width: 100%;
-    bottom: 5px;
+    @include setDimension ($width: 100% ,$bottom: 0.3em);
     text-align:center;
     &::after {
       @extend %box_curve_shadow;
@@ -55,8 +53,7 @@
       width: 100%;
     }
     .dot {
-      height: 7px;
-      width: 7px;
+      @include setDimension ($height: 0.5em ,$width: 0.5em);
       margin: 0 2px;
       background-color: $grey-1;
       border-radius: 50%;

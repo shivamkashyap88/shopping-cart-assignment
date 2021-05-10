@@ -38,6 +38,7 @@ $justifyItems: null) {
     $width : null,
     $height : null,
     $top : null,
+    $bottom : null,
     $left : null,
     $right : null
 ) {
@@ -46,4 +47,5 @@ $justifyItems: null) {
     @if $top { top: $top; }
     @if $left { left : $left; } 
     @if $right { right : $right; } 
+    @if $bottom { bottom : $bottom; } 
 }
