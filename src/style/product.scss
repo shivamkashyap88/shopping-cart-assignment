@@ -1,0 +1,181 @@
+@import '_mixins';
+@import '_variable';
+@import '_utils';
+
+.dropdown-menu {
+    padding: 0.5em;
+    max-width: 100%;
+    background-color: $red;
+    color: $white;
+    margin-top: 1em;
+    ul,li {
+        list-style: none;
+        padding: 0.5em;
+        &.list-menu-small-hide {
+            display: none;
+        }
+        &.list-menu-small-show {
+            display: inline-block;
+        }
+    }
+    .product-type {
+        display: inline-block;
+        width: 100%;
+        em {
+            float: right;
+            margin-right: 0.5em;
+        }
+    }
+    @include respond-to('medium') {
+        display: none;
+    }   
+}
+
+.main-product-content {
+    @include flexbox();
+    @include respond-to('medium') {
+        .span-1-of-4 {
+            width: 22.8%;
+        }
+        p {
+            font-size: 115%;
+            font-weight: 600;
+            -webkit-line-clamp: 4;
+            line-height: 20px;
+        }
+    }
+    aside {
+        display: none;
+        margin-top: 0;
+        background-color: $grey-2;
+        li {
+            padding: 1em;
+            border-bottom: 1px solid $grey-3;
+            font-size: 125%;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            &:hover {
+                background-color: $grey-2;
+            }
+        }
+        @include respond-to('medium') {  
+            display: block; 
+            background-color: $grey-7;
+        }
+    }
+    .products-list {
+        @include flexbox($wrap: wrap , $justifyContent: space-around);
+        .product {
+            width: 225px; 
+            padding: 0.6em 0.6em; 
+            @include flexbox ($grow: 1);
+            @include respond-to('medium') {  padding: 1.25em 0.625em; }
+
+            &.product__last {  @include flexbox ($grow: 0); }
+
+            .product-row {
+                @include flexbox ($direction: column, $shrink: 1);
+                border-bottom: 0.12em dotted $grey-2 ;
+
+                @include respond-to('large') {
+                    padding: 0.3em;
+                    position: relative;
+                    &::after { 
+                        content: " ";
+                        display: block;
+                        position: absolute;
+                        @include setDimension ( $right: -0.8em, $height: 80%,$width: 0.4em);
+                        margin: 1.8em 0em;
+                        background: $grey-4;
+                    }
+                }
+
+                .product__display-flex {
+                    @include flexbox ();
+                    margin-top: 1em;
+
+                    @include respond-to('large'){
+                        @include flexbox ($direction: column, $grow : 1);
+                    }
+                    .product__img {
+                        @include flexbox ($justifyContent: center, $grow : 1 , $basis : 50%);
+                        padding: 0.625em;
+                        img {
+                            width : 100%;
+                        }
+                        @include respond-to('large') {
+                            @include flexbox ($grow : 1 , $basis : 30%);
+                        }
+                    }
+                    .product__display-column {
+                        @include flexbox($direction: column, $shrink :1, $justifyContent: space-evenly);
+                        @include respond-to('large') {
+                            @include flexbox($grow : 1,$direction: column);
+                        }
+                        .product__flex-grow { 
+                            @include flexbox();
+                            @include respond-to('large') {   
+                                flex-grow: 1;
+                            }
+
+                            p {
+                                font-weight: 600;
+                                font-size: 100%;
+                                background-color: $grey-2;
+                                padding: 0.3em;
+                                line-height: 1em;
+                                -webkit-line-sclamp: 5;
+                                display: -webkit-box;
+                                overflow: hidden;
+                                -webkit-box-orient: vertical;
+                                @include respond-to('large') {
+                                    font-size: 120%;
+                                }
+                            }
+                        }
+                        .btn {
+                            margin-top: 0.625em;
+                            width: 100%;
+                        }
+                        .btn-small-screen {
+                            @include respond-to('medium') {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .btn-large-screen {
+                display: none;
+                @include respond-to('medium') {
+                    display: block;
+                    width: 100%;
+                }
+                @include respond-to('large') {
+                    @include flexbox ($alignItems : baseline);
+                }
+                .product__button-row {
+                    @include flexbox ($grow : 1);
+                    text-align: left;
+                    display: none;
+                    @include respond-to('large') {
+                        display: block;
+                    }
+                }
+                .product__button-price2 { 
+                    display: block; 
+                    @include respond-to('large') {
+                        display: none;
+                    }
+                }
+                .product__button-price {
+                    display: none;
+                    @include respond-to('large') {
+                        @include flexbox ($basis : 50% , $justifyContent : center);
+                    }
+                }
+            }
+        }
+    }
+}
+

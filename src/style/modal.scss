@@ -1,172 +1,156 @@
 @import '_variable';
-@import '_base';
+@import '_reset';
+@import '_mixins';
+@import '_utils';
 
 .modal {
     display: none;
     position: fixed; 
     z-index: 1;
-    padding-top: 0px;
-    left: 0;
-    top: 80px;
-    width: 100%; 
-    height: 85%;
+    padding-top: 0;
+    @include setDimension ($left : 0 , $top: 7em , $width : 100% , $height : 87%);
     overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); 
-  }
- 
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #e8e8e8;
-    margin: auto;
-    width: 100%;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #fff;
-    float: right;
-    cursor: pointer;
-    font-size: 150%;
-  }
-
-  .basket {
-    display: flex;
-    margin-top: 10px;
-    padding: 12px;
-    background-color: #fff;
-  }
-
-  .basket__product-image {
-    flex-basis: 15%;
-    img {
-        width: 100%;
+    background-color: $black-2;
+    background-color: $black-3; 
+    @include respond-to('medium') {
+      padding-top: 1.25em;
+      @include setDimension ($top: 0 , $width : 100% , $height : 100%);
     }
-  }
-  
-  .basket__product-description {
-    flex: 1;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-      h3 {
-          font-size: 100%;
+    &.show-modal { display: block; }
+    .modal-content {
+      background-color: $grey-5;
+      margin: auto;
+      overflow: auto;
+      @include flexbox($direction : column);
+      @include setDimension ($width : 100% , $height : 100%);
+      @include respond-to('medium') {
+        position: absolute;
+        @include setDimension ($top: 6em , $right: 0px, $width : 350px , $height : 83%);
       }
-  }
-
-.basket__product-addsubtract {
-    display: inline-block;
-    background-color: $button-color;
-    border-radius: 50%;
-    font-size: 16px;
-    width: 18px;
-    cursor: pointer;
-    text-align: center;
-    color: #fff;
-}
-
-.basket__product-count {
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
-}
-
-.mobile_cart {
-  display: block;
-  background: #fff;
-  font-size: 150%;
-  padding: 20px;
-  font-weight: 600;
-}
-
-.modal-header{
-    display: none;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background-color: #1d2124;
-    width: 100%;
-    padding: 15px;
-    p {
-        font-size: 120%;
-        font-weight: 600;
-        color: #fff;
-        text-align: left;
-        padding-left: 5px;
-        span {
-          font-size: 80%;
-          font-weight: 100;
+      @include respond-to('large') {
+        @include setDimension ($top: 8.25em ,$right: 4.75em);
+      }
+      .modal-header {
+        display: none;
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: $black-1;
+        @include setDimension ($top: 0 ,$width: 100%);
+        padding: 15px;
+        p {
+            font-size: 120%;
+            font-weight: 600;
+            color: $white;
+            text-align: left;
+            padding-left: 5px;
+            span {
+              font-size: 80%;
+              font-weight: 100;
+            }
         }
+        @include respond-to('medium') {
+          display: block;
+        }
+        .close {
+          color: $white;
+          float: right;
+          cursor: pointer;
+          font-size: 150%;
+        }
+      }
+
+      .mobile_cart {
+        display: block;
+        background: $white;
+        font-size: 150%;
+        padding: 1.25em;
+        font-weight: 600;
+        @include respond-to('medium') {
+          display: none;
+        }
+      }
+
+      .product-content {
+        flex: 1;
+        &.emptycart_message {
+          font-size: 120%;
+          text-align: center;
+          @include flexbox($grow : 1 , $alignItems : center);
+        }
+        .flex-full {
+          flex: 1;
+          p {
+            font-weight: 100;
+            padding: 0.625em;
+          }
+        }
+        .basket {
+          display: flex;
+          margin-top: 0.625em;
+          padding: 12px;
+          background-color: $white;
+          .basket__product-image {
+            flex-basis: 15%;
+            img {
+                width: 100%;
+            }
+          }
+          .basket__product-description {
+            padding: 5px;
+            @include flexbox($direction : column , $grow : 1 , $justifyContent : space-around);
+            h3 {
+              font-size: 100%;
+            }
+            .basket__product-count {
+              margin-top: 0.625em;
+              @include flexbox($justifyContent : space-between);
+              .incdec_funct {
+                @include flexbox($basis : 30% , $justifyContent : space-between);
+                .basket__product-addsubtract {
+                  display: inline-block;
+                  background-color: $red;
+                  border-radius: 50%;
+                  font-size: 1em;
+                  width: 1.125em;
+                  cursor: pointer;
+                  text-align: center;
+                  color: $white;
+                }
+              }
+            }
+            .basket__product-text {
+              padding-left: 0.625em;
+            }              
+          }
+        }
+      }
+      .promocode {
+        background-color: $white;
+        padding: 0.625em;
+        width: 95%;
+        margin: 0.625em auto;
+        margin-bottom: 0;
+        @include flexbox($justifyContent : space-between);
+        p {
+          font-weight: 100;
+          padding: 0.625em;
+          font-size: 95%;
+        }
+      }
+      .checkout {
+        font-size: 100%;
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
+        text-align: center;
+        padding: 0.625em;
+        background-color: $white;
+        p {
+          margin-bottom: 0.625em;
+        }
+        .checkoutButton_flex {
+          @include flexbox($justifyContent : space-between);
+        }
+      }
     }
-}
-
-.checkout {
-    font-size: 100%;
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0;
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    p {
-      margin-bottom: 10px;
-    }
-}
-
-.show-modal { display: block; }
-
-.emptycart_message {
-  display: flex;
-  font-size: 120%;
-  flex: 1;
-  align-items: center;
-  text-align: center;
-}
-
-.flex-full {
-  flex: 1;
-  p {
-    font-weight: 100;
-    padding: 10px;
   }
-}
-
-.promocode {
-  display: flex;
-  background-color: #fff;
-  padding: 10px;
-  width: 95%;
-  margin: 10px auto;
-  margin-bottom: 0;
-  justify-content: space-between;
-  p {
-    font-weight: 100;
-    padding: 10px;
-    font-size: 95%;
-  }
-}
-
-.basket__product-text {
-  padding-left: 10px;
-}
-
-.incdec_funct {
-  display: flex;
-  flex-basis: 30%;
-  justify-content: space-between;
-}
-
-.product-content {
-  flex:1; 
-}
-
-.checkoutButton_flex {
-    display: flex;
-    justify-content: space-between;
-}

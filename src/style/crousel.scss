@@ -1,0 +1,77 @@
+@import '_variable';
+@import '_mixins';
+@import '_utils';
+
+/** Previous Next Placeholder**/
+
+%prev_next_placeholder {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  color: $white;
+  background-color: rgba(0,0,0,0.2);
+  font-size: 15px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Slideshow container */
+.crousel-container {
+  max-width: 100%;
+  position: relative;
+  background-color: $white;
+  margin: auto;
+  .slides {
+    display: none;
+    /* Fading animation */
+      &.fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      img {vertical-align: middle;} 
+  }
+  .prev {
+    @extend %prev_next_placeholder;
+  }
+  .next {
+    @extend %prev_next_placeholder;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .crousel_dots {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 5px;
+    text-align:center;
+    &::after {
+      @extend %box_curve_shadow;
+      transform: translate(-60%, 0%);
+      width: 100%;
+    }
+    .dot {
+      height: 7px;
+      width: 7px;
+      margin: 0 2px;
+      background-color: $grey-1;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+  }
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}

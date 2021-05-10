@@ -1,10 +1,11 @@
+import '../style/header.scss';
 export default class header {
     count = 0;
     renderHeader() {
         return `
         <header id="header">
         <nav>
-            <section class="position-relative">
+            <section class="header-container">
                 <figure class="main-logo-section">
                     <img alt="Brand Logo" src="../static/images/logo.png" class="brand-logo" />
                     <ul class="main-logo-list">

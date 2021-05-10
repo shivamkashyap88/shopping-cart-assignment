@@ -1,12 +1,12 @@
-import '../style/crousal.scss';
+import '../style/crousel.scss';
 export default class Crousals {
     slideIndex = 0;
     renderHTML() {
         return `
-        <section class="slideshow-container">
+        <section class="crousel-container">
             <a class="prev" onclick="plusSlides(-1)">PREV</a>
             <a class="next" onclick="plusSlides(1)">NEXT</a>
-            <article class="crousal_dots" id="crousal-dots">
+            <article class="crousel_dots" id="crousal-dots">
             </article>
         </section>
         <br>
@@ -14,19 +14,19 @@ export default class Crousals {
     }
 
     addSlides(imgSrc) {
-        var template = `<div class="mySlides fade">
+        var template = `<div class="slides fade">
                 <img src="${imgSrc}" style="width:100%">
             </div>`;
         var crousalDots = `
         <span class="dot"></span>
         `;
-        document.getElementsByClassName('slideshow-container')[0].insertAdjacentHTML('afterbegin', template);
+        document.getElementsByClassName('crousel-container')[0].insertAdjacentHTML('afterbegin', template);
         document.getElementById('crousal-dots').insertAdjacentHTML('beforeend', crousalDots);
     }
 
     changeSlides() {
         var i;
-        var slides = document.getElementsByClassName("mySlides");
+        var slides = document.getElementsByClassName("slides");
         var dots = document.getElementsByClassName("dot");
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
@@ -46,7 +46,7 @@ export default class Crousals {
     }
 
     plusSlides(n) {
-        var slides = document.getElementsByClassName("mySlides");
+        var slides = document.getElementsByClassName("slides");
         if (n > 0) {
             this.slideIndex += 1;
             if (this.slideIndex > slides.length) {

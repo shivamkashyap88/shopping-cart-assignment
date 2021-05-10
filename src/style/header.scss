@@ -1,0 +1,73 @@
+@import '_variable';
+@import '_reset';
+@import '_input';
+@import '_mixins';
+@import '_utils';
+
+.header-container {
+    position: relative;
+    display: flex;
+    @include respond-to('large') {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .main-logo-section {
+        display: inline-block;
+        flex-basis: 75%;
+        margin: 0 !important;
+        height: auto;
+        ul {
+            flex: 20%;
+        } 
+        li { 
+            padding: 0 15px;
+            margin-top: 50px;
+        }
+        @include respond-to('medium') { flex-basis: 85%; }
+        @include respond-to('large') { flex-basis: 90%; }
+        .brand-logo {
+            width: 100px;
+            height: auto;
+            margin-top: 5px;
+            @include respond-to('medium')  { width: 150px; }
+        }
+        .main-logo-list { 
+            @include respond-to('medium'){
+                display: inline-block; 
+                padding-left: 5em;
+            }
+        }        
+    }
+    .header-right-section {
+        cursor: pointer;
+        text-align: center;
+        @include flexbox($direction: column, $grow: 1 , $justifyContent: space-between);
+        @include respond-to('large') {
+            width: 100px;
+            line-height: 40px;
+        }
+        @include respond-to('huge') {
+            width: 15%;
+            line-height: 30px;
+        }
+        .login-section-link {
+            text-align: right;
+            font-size: 85%;
+            font-weight: bold;
+            flex: 1;
+            padding-top: 10px;
+            li {
+                padding: 2px;
+            }
+            @include respond-to('large') {
+                font-size: 80%;
+                padding: 0px;
+            }
+        }
+        .header-right-section__basket {
+            background-color: $grey-6;
+            @include flexbox($alignItems: center , $grow :1 , $justifyContent: center);
+            padding: 5px;
+        }
+    }
+}

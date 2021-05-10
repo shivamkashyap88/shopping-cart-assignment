@@ -1,0 +1,49 @@
+@import '_variable';
+
+%box_curve_shadow {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    height: 94px;
+    background: $white;
+    border-radius: 406px/19px;
+    z-index: -1;
+    box-shadow: 0 0px 10px 7px rgb(100 100 100 / 50%);
+}
+
+@mixin flexbox( $display: flex,
+$direction: row,
+$placeContent: null,
+$placeItems: null,
+$wrap: nowrap,
+$shrink: 0,
+$grow: 0,
+$basis: null,
+$alignContent: null,
+$justifyContent: null,
+$alignItems: null,
+$justifyItems: null) {
+    display: $display;
+    flex-direction: $direction;
+    @if $alignItems   { align-items: $alignItems; }
+    @if $justifyItems { justify-items: $justifyItems; }
+    @if $justifyContent { justify-content: $justifyContent; }
+    @if $basis { flex-basis : $basis; }
+    flex-grow : $grow; 
+    flex-shrink: $shrink; 
+    flex-wrap : $wrap,
+}
+
+@mixin setDimension(
+    $width : null,
+    $height : null,
+    $top : null,
+    $left : null,
+    $right : null
+) {
+    @if $width   { width : $width; }
+    @if $height { height : $height; }
+    @if $top { top: $top; }
+    @if $left { left : $left; } 
+    @if $right { right : $right; } 
+}

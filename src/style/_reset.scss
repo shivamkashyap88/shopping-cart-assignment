@@ -1,0 +1,54 @@
+@use '../vendor/css/normalize.css';
+@import '_mixins';
+@import '_variable';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font-stack;
+    font-size: $primary-font-size;
+    color: $black;
+}
+
+body > header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: $white;
+    font-size: 40%;
+    box-shadow: $header-box-shadow;  
+    z-index: 1;
+    ul,li {
+        display: inline-block;
+        list-style: none;
+    }
+    li {
+        a {
+            text-decoration: none;
+            color: $black;
+        }
+    }
+}
+
+.row {
+    margin: 0 auto; 
+    max-width: 90%;
+}
+
+.span-3-of-4 {
+    width: 100%;
+    @include respond-to('medium') { width: 74.6%; }
+}
+
+main {
+    font-size: 35%;
+    width: 100%;
+    word-spacing: 0.05em;
+    p {
+        font-size: 120%;
+    }
+}

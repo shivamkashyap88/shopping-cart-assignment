@@ -1,18 +1,16 @@
 import '../style/home.scss';
+import '../style/register.scss';
+import '../style/product.scss';
 import modalHTML from '../js/modal';
-import Crousals from '../js/crousal';
+import Crousals from '../js/crousel';
 import Header from '../js/header';
-import '../style/media.scss';
 import categories from '../../server/categories/index.get.json';
 import products from '../../server/products/index.get.json';
 import banner from '../../server/banners/index.get.json';
 
-
-
 var modal = new modalHTML();
 var header = new Header();
 var crousal = new Crousals();
-
 
 window.renderCatalog = function () {
     var sortCategory = categories.sort(function(a,b){
@@ -27,7 +25,7 @@ window.renderCatalog = function () {
                     <img class="categories-img" src="${sortCategory[i].imageUrl}">
                     </figure>
                     <article>
-                    <h3>${sortCategory[i].name}</h3><p>${sortCategory[i].description}</p><button class="btn">${'Explore ' + sortCategory[i].key}</button>
+                    <h3>${sortCategory[i].name}</h3><p>${sortCategory[i].description}</p><button class="btn btn--auto">${'Explore ' + sortCategory[i].key}</button>
                     </article>
                 </section>`;
                 document.getElementById('sectionCategories').insertAdjacentHTML('beforeend',template);
@@ -35,7 +33,7 @@ window.renderCatalog = function () {
                 var template = `
                 <section class="sec">
                     <article>
-                    <h3>${sortCategory[i].name}</h3><p>${sortCategory[i].description}</p><button class="btn">${'Explore ' + sortCategory[i].key}</button>
+                    <h3>${sortCategory[i].name}</h3><p>${sortCategory[i].description}</p><button class="btn btn--auto">${'Explore ' + sortCategory[i].key}</button>
                     </article>
                     <figure>
                     <img class="categories-img" src="${sortCategory[i].imageUrl}">
@@ -97,7 +95,7 @@ window.renderProducts = function (id) {
         }
     }
     document.getElementsByClassName("product")[document.getElementsByClassName("product").length - 1].className = "product product__last";
-    document.getElementsByClassName('position-relative')[0].insertAdjacentHTML('beforeend', modal.renderHTML());
+    document.getElementsByClassName('header-container')[0].insertAdjacentHTML('beforeend', modal.renderHTML());
     if (!id) {
         modal.checkoutButtonTemplate();
     }
@@ -111,7 +109,7 @@ window.addProduct = function (productId) {
             header.changeBasketCount();
         }
     }
-    document.getElementsByClassName('width100')[0].classList.add('checkoutButton_flex');
+    document.getElementsByClassName('btn--full')[0].classList.add('checkoutButton_flex');
     document.getElementsByClassName('total_amount_text')[0].innerHTML = 'Proceed to Checkout';
     document.getElementsByClassName('total_amount')[0].innerHTML = 'Rs.' + modal.calculateTotalPrice();
 }

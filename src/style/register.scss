@@ -1,0 +1,27 @@
+@import '_mixins';
+@import '_utils';
+
+main {
+    .row {
+        max-width: 85%;
+        @include flexbox ($basis : 50% , $wrap: wrap , $justifyContent : space-evenly);
+        margin-bottom: 1em;
+    }
+}
+
+.signup-header {
+    text-align: center;
+    margin-top: 1.25em;
+    @include respond-to('medium') { text-align: left ; }
+}
+
+.sign-form {
+    margin-top : 1.25em;
+    flex-basis: 100%;
+    @include respond-to('medium') { flex-basis: 40%; }   
+}
+
+.login-form {
+    margin-bottom: 0.31em !important;
+    @include respond-to('medium') { @include flexbox ($wrap: wrap , $justifyContent : space-between) }
+}

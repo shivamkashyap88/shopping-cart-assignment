@@ -1,0 +1,68 @@
+@use '../vendor/css/normalize.css';
+@use '_variable';
+
+/** Placeholder **/
+%input_placeholder {
+    border : 0;
+    width: 100%;
+    outline: none;
+}
+
+/** Mixins **/
+@mixin input_focus_placeholder {
+    transform: scale(0.40) translateY(-75%) translateX(-75%);
+    color: $blue;
+    font-size: 1.5em;
+}
+
+form label::before ,form label::after {
+    content: " ";
+    position: relative;
+}
+
+form label {
+    position: absolute;
+    color: $grey-1;
+}
+
+input[type="text"],input[type="password"],input[type="password"],input[type="email"] {
+    @extend %input_placeholder;
+    padding: 0.5em;
+    border-bottom: 1px solid $grey;
+    height: 4em;
+    margin: 0.5em;
+    font-size: 100%;
+    transition: border-bottom 0.2s;
+    &:focus {
+        border-bottom: 1px solid $blue;
+    }
+    &:focus::-webkit-input-placeholder {
+        @include input_focus_placeholder;
+    }
+    &:focus:-moz-placeholder {
+        @include input_focus_placeholder;
+    }
+    &:focus:-ms-input-placeholder {
+        @include input_focus_placeholder;
+    }
+}
+
+input[type="submit"],.btn {
+    @extend %input_placeholder;
+    color: $white;
+    background-color: $red;
+    padding: 1em;
+    margin-top: 2em;
+    cursor: pointer;
+}
+
+.btn {
+    &--full {
+        width: 100%;
+        margin: 0;
+    }
+
+    &--auto {
+        width: auto;
+    }
+}

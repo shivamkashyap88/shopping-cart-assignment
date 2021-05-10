@@ -65,7 +65,7 @@ export default class modalHTML {
         var template = `
             <article class="checkout">
                 <p id="promoCode_p"></p>
-                <button class="btn width100">
+                <button class="btn btn--full">
                 <span class="total_amount_text">${checkoutButtonString}</span>
                 <span class="total_amount"></span></button>
             </article>
